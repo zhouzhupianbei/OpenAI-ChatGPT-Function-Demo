@@ -1,0 +1,30 @@
+server:
+  port: 9000 #端口
+
+spring:
+  servlet:
+    multipart: # 文件上传限制
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+openai:
+  model: "gpt-3.5-turbo-0613" # 模型，暂时没什么用
+  tokens: "" # OpenAI Token，多个使用逗号隔开，注意是英文逗号，不过多个token我没试过
+
+base:
+  proxy: # 代理信息，如果需要的话，国内肯定得用，不会了百度或者私信我
+    url: 127.0.0.1
+    port: 7890
+  file:
+    save-path: /out/files # 文件保存路径
+functions:
+  weather: # 天气的配置
+    api:
+      url: http://api.weatherapi.com/v1/current.json
+      key:  # 天气查询的key
+  lucene:
+    index:
+      path: # 索引保存路径
+    timeout: 10s
+    fragment-size: 200
+    default-page-size: 10
